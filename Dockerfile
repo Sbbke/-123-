@@ -9,9 +9,10 @@ RUN pip install xformers
 # COPY stable-diffusion-webui /
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
 RUN git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
-RUN groupadd -g 999 appuser && \
-     useradd -r -u 999 -g appuser appuser
-USER appuser
+
+# RUN groupadd -g 999 appuser && \
+#      useradd -r -u 999 -g appuser appuser
+# USER appuser
 # RUN cd stable-diffusion-webui && ./webui.sh
 
 EXPOSE 7860
