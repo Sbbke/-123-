@@ -3,7 +3,7 @@ WORKDIR /home
 RUN sed -i -e 's/http:\/\/archive\.ubuntu\.com\/ubuntu\//mirror:\/\/mirrors\.ubuntu\.com\/mirrors\.txt/' /etc/apt/sources.list
 RUN apt-get clean
 RUN chmod a+rwx home && cd home
-RUN apt-get update && apt-get install -y python3 python3-pip git wget python3-venv libgoogle-perftools-dev
+RUN apt-get update && apt-get install -y python3 python3-pip git wget python3-venv libgoogle-perftools-dev pciutils
 RUN pip install xformers
 # RUN pip install torch==2.0.1+rocm5.4.2 torchvision==0.15.2+rocm5.4.2 --index-url https://download.pytorch.org/whl/rocm5.4.2
 # COPY stable-diffusion-webui /
