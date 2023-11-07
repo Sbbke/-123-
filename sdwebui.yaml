@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sd-webui
+  namespace: default
+spec:
+  restartPolicy: Always
