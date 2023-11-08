@@ -11,6 +11,9 @@ sudo docker run --gpus all -p 7861:7861 -it 90850fbf67bf bash
 --
 For import docker image into kubernetes
 --
+
 1.save docker image as tar file in local machine
+
 2.port tar file into kubernetes through ctr
+
 3.check the image with cri-o
