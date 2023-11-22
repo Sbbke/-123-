@@ -13,6 +13,8 @@ For import docker image into kubernetes
 
 1.save docker image as tar file in local machine
 
+    sudo docker save <image> -o <imageName>.tar
+
 2.port tar file into kubernetes through ctr (-n k8s.io)
 
     sudo ctr -n k8s.io image import yourImage.tar
