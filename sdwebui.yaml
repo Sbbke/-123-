@@ -1,7 +1,50 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: sd-webui
-  namespace: default
+  name: vla-sd-webui-deployment
+  labels:
+    app: vla-sd-webui
 spec:
-  restartPolicy: Always
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vla-sd-webui
+  template:
+    metadata:
+      labels:
+        app: vla-sd-webui
+    spec:  
+      restartPolicy: Always
+      containers:
+      - name: sd-webui
+        image: library/vla-sd-webui:latest 
+        imagePullPolicy: Never
+        command: ["python3", "/stable-diffusion-webui/launch.py"]
+        args:
+        - "--insecure"
+        - "--allow-code"
+        - "--listen"
+        - "--upgrade"
+        - "--no-download"
+        resources:
+          limits:
+            nvidia.com/gpu: 1
+        ports:
+        - containerPort: 7860
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vla-sd-webui-service
+  labels:
+    app: vla-sd-webui-service
+spec:
+  type: NodePort
+  selector:
+    app: vla-sd-webui
+  ports:
+    - protocol: TCP
+      port: 7860
+      targetPort: 7860
+      nodePort: 30786
