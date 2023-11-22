@@ -16,10 +16,10 @@ For import docker image into kubernetes
 
 2.port tar file into kubernetes through ctr (-n k8s.io)
 
-ex. sudo ctr -n k8s.io image import yourImage.tar
+    ex. sudo ctr -n k8s.io image import yourImage.tar
 
 3.check the image with cri-o
 
-ex. crictl images
+    ex. crictl images
 
-To delete a image: crictl rmi <image-ID>
+    To delete a image: crictl rmi <image-ID>
