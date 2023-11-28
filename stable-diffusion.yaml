@@ -17,7 +17,7 @@ spec:
       restartPolicy: Always
       initContainers:
       - name: stable-diffusion-initial
-        image: library/stable-diffustion:latest
+        image: library/vla-sd-webui:latest
         imagePullPolicy: Never
         command: ["/bin/sh", "-c"]
         args:
@@ -27,16 +27,21 @@ spec:
           mountPath: /stable-diffusion-webui-data
       containers:
       - name: stable-diffusion-webui
-        image: library/stable-diffustion:latest
+        image: library/vla-sd-webui:latest
         imagePullPolicy: Never
-        command: ["python3", "/stable-diffusion-webui/webui.py"]
+        command: ["python3", "/stable-diffusion-webui/launch.py"]
         args:
+        # - "--listen"
+        # - "--xformers"
+        # - "--no-download-sd-model"
+        # - "--enable-insecure-extension-access"
+        # - "--api"
+        # - "--theme=dark"
+        - "--insecure"
+        - "--allow-code"
         - "--listen"
-        - "--xformers"
-        - "--no-download-sd-model"
-        - "--enable-insecure-extension-access"
-        - "--api"
-        - "--theme=dark"
+        - "--upgrade"
+        - "--no-download"
         resources:
           limits:
             nvidia.com/gpu: 1
@@ -45,6 +50,8 @@ spec:
         volumeMounts:
         - name: sd-data
           mountPath: /stable-diffusion-webui
+        - name: sd-embeddings
+          mountPath: /stable-diffusion-webui/models/embeddings    
       volumes:
       - name: sd-backup
         hostPath:
@@ -52,6 +59,9 @@ spec:
       - name: sd-data
         hostPath:
           path: /home/selab/stable-diffusion-webui
+      - name: sd-embeddings
+        hostPath:
+          path: /home/selab/stable-diffusion-webui/embeddings
 ---
 apiVersion: v1
 kind: Service

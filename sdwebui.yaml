@@ -15,6 +15,18 @@ spec:
         app: vla-sd-webui
     spec:  
       restartPolicy: Always
+    spec:
+      restartPolicy: Always
+      initContainers:
+      - name: vla-stable-diffusion-initial
+        image: library/vla-sd-webui:latest
+        imagePullPolicy: Never
+        command: ["/bin/sh", "-c"]
+        args:
+        - "cp -r /stable-diffusion-webui /stable-diffusion-webui-data"
+        volumeMounts:
+        - name: sd-backup
+          mountPath: /stable-diffusion-webui-data
       containers:
       - name: sd-webui
         image: library/vla-sd-webui:latest 
@@ -31,6 +43,36 @@ spec:
             nvidia.com/gpu: 1
         ports:
         - containerPort: 7860
+        volumeMounts:
+        - name: sd-models
+          mountPath: /stable-diffusion-webui/models
+        - name: sd-outputs
+          mountPath: /stable-diffusion-webui/outputs
+        - name: sd-extensions
+          mountPath: /stable-diffusion-webui/extensions
+        - name: sd-scripts
+          mountPath: /stable-diffusion-webui/scripts
+        - name: sd-embeddings
+          mountPath: /stable-diffusion-webui/models/embeddings         
+      volumes:
+      - name: sd-backup
+        hostPath:
+          path: /home/selab
+      - name: sd-models
+        hostPath:
+          path: /home/selab/stable-diffusion-webui/models
+      - name: sd-outputs
+        hostPath:
+          path: /home/selab/stable-diffusion-webui/outputs
+      - name: sd-extensions
+        hostPath:
+          path: /home/selab/stable-diffusion-webui/extensions
+      - name: sd-scripts
+        hostPath:
+          path: /home/selab/stable-diffusion-webui/scripts
+      - name: sd-embeddings
+        hostPath:
+          path: /home/selab/stable-diffusion-webui/embeddings
 
 ---
 apiVersion: v1
