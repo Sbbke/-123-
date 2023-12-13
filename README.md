@@ -1,5 +1,5 @@
-# Docker-experiment
-Documenting the challenges/issues and solution during this practice of trying to build a docker container of stable diffusion webui.
+# StableDiffusion-containerization
+Documenting the challenges/issues and practicce during this practice of trying to build a docker container of stable diffusion webui.
 
 
 execute docker run command with :
