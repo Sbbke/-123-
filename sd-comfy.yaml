@@ -101,7 +101,7 @@ spec:
           path: /home/selab/stable-diffusion-webui/models/VAE
       - name: sd-animatediff-model
         hostPath: 
-          path: /stable-diffusion-webui/extensions/sd-webui-animatediff/model
+          path: /home/selab/stable-diffusion-webui/extensions/sd-webui-animatediff/model
 ---
 apiVersion: v1
 kind: Service
