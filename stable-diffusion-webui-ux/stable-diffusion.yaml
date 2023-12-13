@@ -14,10 +14,11 @@ spec:
       labels:
         app: stable-diffusion
     spec:
+      nodeName: selab-t27
       restartPolicy: Always
       initContainers:
       - name: stable-diffusion-initial
-        image: library/vla-sd-webui:latest
+        image: library/sdwebui-ux:latest
         imagePullPolicy: Never
         command: ["/bin/sh", "-c"]
         args:
@@ -27,21 +28,22 @@ spec:
           mountPath: /stable-diffusion-webui-data
       containers:
       - name: stable-diffusion-webui
-        image: library/vla-sd-webui:latest
+        image: library/sdwebui-ux:latest
         imagePullPolicy: Never
         command: ["python3", "/stable-diffusion-webui/launch.py"]
         args:
-        # - "--listen"
-        # - "--xformers"
-        # - "--no-download-sd-model"
-        # - "--enable-insecure-extension-access"
-        # - "--api"
-        # - "--theme=dark"
-        - "--insecure"
-        - "--allow-code"
         - "--listen"
-        - "--upgrade"
-        - "--no-download"
+        - "--xformers"
+        - "--no-download-sd-model"
+        - "--enable-insecure-extension-access"
+        - "--api"
+        - "--disable-safe-unpickle"
+        # - "--theme=dark"
+        # - "--insecure"
+        # - "--allow-code"
+        # - "--listen"
+        # - "--upgrade"
+        # - "--no-download"
         resources:
           limits:
             nvidia.com/gpu: 1
@@ -50,8 +52,10 @@ spec:
         volumeMounts:
         - name: sd-data
           mountPath: /stable-diffusion-webui
-        - name: sd-embeddings
-          mountPath: /stable-diffusion-webui/models/embeddings    
+        # - name: sd-embeddings
+        #   mountPath: /stable-diffusion-webui/models/embeddings    
+        - name: sd-controlnet
+          mountPath: /stable-diffusion-webui/extensions/sd-webui-controlnet/models
       volumes:
       - name: sd-backup
         hostPath:
@@ -59,9 +63,12 @@ spec:
       - name: sd-data
         hostPath:
           path: /home/selab/stable-diffusion-webui
-      - name: sd-embeddings
+      - name: sd-controlnet
         hostPath:
-          path: /home/selab/stable-diffusion-webui/embeddings
+          path: /home/selab/ControlNet-v1-1/
+      # - name: sd-embeddings
+      #   hostPath:
+      #     path: /home/selab/stable-diffusion-webui/embeddings
 ---
 apiVersion: v1
 kind: Service
