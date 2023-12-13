@@ -22,9 +22,9 @@ RUN pip3 install open_clip_torch
 # RUN aria2c -d /stable-diffusion-webui/models/Stable-diffusion/ -o ChilloutMix-FP32-Fix.preview.jpeg "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/20fcc1d7-29ce-42d8-1502-02c4e50e9100/width=450/174703.jpeg"
 
 
-RUN git clone https://github.com/comfyanonymous/ComfyUI.git /stable-duffusion-comfyui
+RUN git clone https://github.com/comfyanonymous/ComfyUI.git /stable-diffusion-comfyui
 WORKDIR /stable-diffusion-comfyui
-RUN pip3 install -r requirements.txt
+RUN pip3 install -r /stable-diffusion-comfyui/requirements.txt
 # RUN python3 /stable-diffusion-webui/launch.py --no-download-sd-model --skip-torch-cuda-test --exit
 
 # CMD python3 /stable-diffusion-webui/webui.py --listen --xformers --no-download-sd-model --enable-insecure-extension-access --api

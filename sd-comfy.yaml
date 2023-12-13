@@ -18,7 +18,7 @@ spec:
       restartPolicy: Always
       initContainers:
       - name: stable-diffusion-initial
-        image: library/sdwebui-ux:latest
+        image: library/sd-comfy:latest
         imagePullPolicy: Never
         command: ["/bin/sh", "-c"]
         args:
@@ -28,13 +28,12 @@ spec:
           mountPath: /stable-diffusion-comfyui-data
       containers:
       - name: stable-diffusion-comfyui
-        image: library/sd-comfyui:latest
+        image: library/sd-comfy:latest
         imagePullPolicy: Never
-        command: ["python3", "/stable-diffusion-comfyui/launch.py"]
+        command: ["python3", "/stable-diffusion-comfyui/main.py"]
         args:
         #------------for comfyui----------------
         - "--listen"
-        - "--highvram"
         - "--gpu-only"
         - "--disable-auto-launch"
 
@@ -45,6 +44,7 @@ spec:
         # - "--enable-insecure-extension-access"
         # - "--api"
         # - "--disable-safe-unpickle"
+
         #------------for sd.next----------------
         # - "--theme=dark"
         # - "--insecure"
@@ -56,7 +56,7 @@ spec:
           limits:
             nvidia.com/gpu: 1
         ports:
-        - containerPort: 7860
+        - containerPort: 8188
         volumeMounts:
         - name: sd-data
           mountPath: /stable-diffusion-comfyui
@@ -81,22 +81,22 @@ spec:
           path: /home/selab/stable-diffusion-comfyui
       - name: sd-model-checkpoints
         hostPath:
-          path: /home/selab/stable-diffusion-webui/Stable-diffusion
+          path: /home/selab/stable-diffusion-webui/models/Stable-diffusion
       - name: sd-model-lora
         hostPath:
-          path: /home/selab/stable-diffusion-webui/Lora   
+          path: /home/selab/stable-diffusion-webui/models/Lora   
       - name: sd-model-upscale
         hostPath:
-          path: /home/selab/stable-diffusion-webui/ESRGAN             
+          path: /home/selab/stable-diffusion-webui/models/ESRGAN             
       - name: sd-controlnet
         hostPath:
           path: /home/selab/ControlNet-v1-1/
       - name: sd-embeddings
         hostPath:
-          path: /home/selab/stable-diffusion-webui/embeddings
+          path: /home/selab/stable-diffusion-webui/models/embeddings
       - name: sd-vae
         hostPath:
-          path: /home/selab/stable-diffusion-webui/VAE
+          path: /home/selab/stable-diffusion-webui/models/VAE
 ---
 apiVersion: v1
 kind: Service
@@ -110,6 +110,6 @@ spec:
     app: stable-diffusion
   ports:
     - protocol: TCP
-      port: 7860
-      targetPort: 7860
-      nodePort: 30786
+      port: 8188
+      targetPort: 8188
+      nodePort: 30818
