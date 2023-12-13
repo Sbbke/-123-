@@ -34,7 +34,6 @@ spec:
         args:
         #------------for comfyui----------------
         - "--listen"
-        - "--gpu-only"
         - "--disable-auto-launch"
 
         #------------for sd.ui----------------
@@ -74,6 +73,8 @@ spec:
           mountPath: /stable-diffusion-comfyui/models/vae
         - name: sd-animatediff-model
           mountPath: /stable-diffusion-comfyui/custom_nodes/ComfyUI-AnimateDiff-Evolved/models
+          mountPath: /stable-diffusion-comfyui/custom_nodes/comfyui-animatediff/models
+
       volumes:
       - name: sd-backup
         hostPath:
@@ -102,6 +103,7 @@ spec:
       - name: sd-animatediff-model
         hostPath: 
           path: /home/selab/stable-diffusion-webui/extensions/sd-webui-animatediff/model
+
 ---
 apiVersion: v1
 kind: Service
