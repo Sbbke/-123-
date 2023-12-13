@@ -25,6 +25,11 @@ RUN pip3 install open_clip_torch
 RUN git clone https://github.com/comfyanonymous/ComfyUI.git /stable-diffusion-comfyui
 WORKDIR /stable-diffusion-comfyui
 RUN pip3 install -r /stable-diffusion-comfyui/requirements.txt
+RUN pip3 install GitPython
+RUN git clone https://github.com/ltdrdata/ComfyUI-Impact-Pack.git /stable-diffusion-comfyui/custom_nodes/ComfyUI-Impact-Pack
+RUN python3 /stable-diffusion-comfyui/custom_nodes/ComfyUI-Impact-Pack/install.py
+RUN git clone https://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved.git /stable-diffusion-comfyui/custom_nodes/ComfyUI-AnimateDiff-Evolved
+
 # RUN python3 /stable-diffusion-webui/launch.py --no-download-sd-model --skip-torch-cuda-test --exit
 
 # CMD python3 /stable-diffusion-webui/webui.py --listen --xformers --no-download-sd-model --enable-insecure-extension-access --api

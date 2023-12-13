@@ -72,6 +72,8 @@ spec:
           mountPath: /stable-diffusion-comfyui/models/controlnet
         - name: sd-vae
           mountPath: /stable-diffusion-comfyui/models/vae
+        - name: sd-animatediff-model
+          mountPath: /stable-diffusion-comfyui/custom_nodes/ComfyUI-AnimateDiff-Evolved/models
       volumes:
       - name: sd-backup
         hostPath:
@@ -97,6 +99,9 @@ spec:
       - name: sd-vae
         hostPath:
           path: /home/selab/stable-diffusion-webui/models/VAE
+      - name: sd-animatediff-model
+        hostPath: 
+          path: /stable-diffusion-webui/extensions/sd-webui-animatediff/model
 ---
 apiVersion: v1
 kind: Service
