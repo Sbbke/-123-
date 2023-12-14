@@ -73,7 +73,6 @@ spec:
           mountPath: /stable-diffusion-comfyui/models/vae
         - name: sd-animatediff-model
           mountPath: /stable-diffusion-comfyui/custom_nodes/ComfyUI-AnimateDiff-Evolved/models
-          mountPath: /stable-diffusion-comfyui/custom_nodes/comfyui-animatediff/models
 
       volumes:
       - name: sd-backup

@@ -30,8 +30,15 @@ RUN git clone https://github.com/ltdrdata/ComfyUI-Impact-Pack.git /stable-diffus
 RUN python3 /stable-diffusion-comfyui/custom_nodes/ComfyUI-Impact-Pack/install.py
 RUN git clone https://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved.git /stable-diffusion-comfyui/custom_nodes/ComfyUI-AnimateDiff-Evolved
 
-RUN apt update & apt upgrade
-RUN apt install ffmpeg
+RUN apt update && apt upgrade -y
+RUN apt install -y ffmpeg
+
+RUN pip3 install numba numexpr simpleeval facexlib insightface basicsr
+RUN pip3 install piexif openmim segment-anything ultralytics scikit-image 
+
+RUN git clone https://github.com/WASasquatch/was-node-suite-comfyui.git /stable-diffusion-comfyui/custom_nodes/was-node-suite-comfyui
+RUN pip3 install -r /stable-diffusion-comfyui/custom_nodes/was-node-suite-comfyui/requirements.txt
+
 # RUN python3 /stable-diffusion-webui/launch.py --no-download-sd-model --skip-torch-cuda-test --exit
 
 # CMD python3 /stable-diffusion-webui/webui.py --listen --xformers --no-download-sd-model --enable-insecure-extension-access --api
