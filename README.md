@@ -26,3 +26,7 @@ For import docker image into kubernetes
 To delete a image: 
 
     crictl rmi <image-ID>
+
+Utilize k8s script to save your time:     https://github.com/KatLantyss/kube-script
+    ./k8s.sh load
+
