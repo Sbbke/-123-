@@ -73,6 +73,22 @@ spec:
           mountPath: /stable-diffusion-comfyui/models/vae
         - name: sd-animatediff-model
           mountPath: /stable-diffusion-comfyui/custom_nodes/ComfyUI-AnimateDiff-Evolved/models
+      - name: stable-diffustion-ux
+        image: library/sdwebui-ux:latest
+        imagePullPolicy: Never
+        command: ["python3", "/stable-diffusion-webui/launch.py"]
+        args:
+                #------------for sd.ui----------------
+        - "--listen"
+        - "--no-download-sd-model"
+        - "--enable-insecure-extension-access"
+        - "--no-half"
+        - "--skip-torch-cuda-test"
+        ports:
+        - containerPort: 7860
+        volumeMounts:
+        - name: sd-ux-data
+          mountPath: /stable-diffusion-webui
       volumes:
       - name: sd-backup
         hostPath:
@@ -80,6 +96,9 @@ spec:
       - name: sd-data
         hostPath:
           path: /home/selab/stable-diffusion-comfyui
+      - name: sd-ux-data
+        hostPath:
+          path: /home/selab/stable-diffusion-webui
       - name: sd-model-checkpoints
         hostPath:
           path: /home/selab/stable-diffusion-webui/models/Stable-diffusion
@@ -114,7 +133,13 @@ spec:
   selector:
     app: stable-diffusion
   ports:
-    - protocol: TCP
+    - name: comfyui
+      protocol: TCP
       port: 8188
       targetPort: 8188
       nodePort: 30818
+    - name: uiux
+      protocol: TCP
+      port: 7860
+      targetPort: 7860
+      nodePort: 30786
