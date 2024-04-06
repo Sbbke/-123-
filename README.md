@@ -26,6 +26,15 @@ For import docker image into kubernetes
 To delete a image: 
 
     crictl rmi <image-ID>
+--
+For running on kubernetes
+--
+install nvidia-gpu-operator <https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html>
+    helm install --wait --generate-name \
+     -n gpu-operator --create-namespace \
+      nvidia/gpu-operator \
+      --set driver.enabled=false \
+      --set toolkit.enabled=false
 
 Utilize k8s script to save your time:     https://github.com/KatLantyss/kube-script
 
