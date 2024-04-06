@@ -29,7 +29,9 @@ To delete a image:
 --
 For running on kubernetes
 --
+
 install nvidia-gpu-operator <https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html>
+
     helm install --wait --generate-name \
      -n gpu-operator --create-namespace \
       nvidia/gpu-operator \
