@@ -1,0 +1,162 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stable-diffusion-deployment
+  labels:
+    app: stable-diffusion
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stable-diffusion
+  template:
+    metadata:
+      labels:
+        app: stable-diffusion
+    spec:
+      nodeName: selab-t27
+      restartPolicy: Always
+      initContainers:
+      - name: stable-diffusion-comfy-initial
+        image: library/sd-comfy:latest
+        imagePullPolicy: Never
+        command: ["/bin/sh", "-c"]
+        args:
+        - "cp -r /stable-diffusion-comfyui/* /sd-comfy"
+        volumeMounts:
+        - name: sd-comfy-backup
+          mountPath: /sd-comfy
+      - name: stable-diffusion-uiux-initial
+        image: library/sdwebui-ux:latest
+        imagePullPolicy: Never
+        command: ["/bin/sh", "-c"]
+        args:
+        - "cp -r /stable-diffusion-webui/* /sd-webui"
+        volumeMounts:
+        - name: sd-webui-backup
+          mountPath: /sd-webui
+      containers:
+      - name: stable-diffusion-comfyui
+        image: library/sd-comfy:latest
+        imagePullPolicy: Never
+        command: ["python3", "/stable-diffusion-comfyui/main.py"]
+        args:
+        #------------for comfyui----------------
+        - "--listen"
+        - "--disable-auto-launch"
+
+        #------------for sd.ui----------------
+        # - "--listen"
+        # - "--xformers"
+        # - "--no-download-sd-model"
+        # - "--enable-insecure-extension-access"
+        # - "--api"
+        # - "--disable-safe-unpickle"
+
+        #------------for sd.next----------------
+        # - "--theme=dark"
+        # - "--insecure"
+        # - "--allow-code"
+        # - "--listen"
+        # - "--upgrade"
+        # - "--no-download"
+        resources:
+          limits:
+            nvidia.com/gpu: 1
+        ports:
+        - containerPort: 8188
+        volumeMounts:
+        - name: sd-data
+          mountPath: /stable-diffusion-comfyui
+        - name: sd-model-checkpoints
+          mountPath: /stable-diffusion-comfyui/models/checkpoints   
+        - name: sd-model-lora
+          mountPath: /stable-diffusion-comfyui/models/loras   
+        - name: sd-model-upscale
+          mountPath: /stable-diffusion-comfyui/models/upscale_models
+        - name: sd-embeddings
+          mountPath: /stable-diffusion-comfyui/models/embeddings    
+        - name: sd-controlnet
+          mountPath: /stable-diffusion-comfyui/models/controlnet
+        - name: sd-vae
+          mountPath: /stable-diffusion-comfyui/models/vae
+        - name: sd-animatediff-model
+          mountPath: /stable-diffusion-comfyui/custom_nodes/ComfyUI-AnimateDiff-Evolved/models
+
+      - name: stable-diffustion-ux
+        image: library/sdwebui-ux:latest
+        imagePullPolicy: Never
+        # command: ["python3", "/stable-diffusion-webui/webui.py", "--use-cpu", "all"]
+        # args:
+        #         #------------for sd.ui----------------
+        # - "--listen"
+        # - "--no-download-sd-model"
+        # - "--enable-insecure-extension-access"
+        # - "--no-half"
+        # - "--skip-torch-cuda-test"
+        # - "--skip-install"
+
+        ports:
+        - containerPort: 7860
+        volumeMounts:
+        - name: sd-ux-data
+          mountPath: /stable-diffusion-webui
+        - name: sd-model-lora
+          mountPath: /stable-diffusion-webui/models/Lora
+      volumes:
+      - name: sd-comfy-backup
+        hostPath:
+          path: /media/selab/Transcend/StableDiffusion/sd-comfy
+      - name: sd-webui-backup
+        hostPath:
+          path: /media/selab/Transcend/StableDiffusion/sd-webui
+      - name: sd-data
+        hostPath:
+          path: /media/selab/Transcend/StableDiffusion/sd-comfy
+      - name: sd-ux-data
+        hostPath:
+          path: /media/selab/Transcend/StableDiffusion/sd-webui
+      - name: sd-model-checkpoints
+        hostPath:
+          path: /media/selab/Transcend/StableDiffusion/models/Stable-diffusion
+      - name: sd-model-lora
+        hostPath:
+          path: /media/selab/Transcend/StableDiffusion/models/Lora   
+      - name: sd-model-upscale
+        hostPath:
+          path: /media/selab/Transcend/StableDiffusion/models/ESRGAN             
+      - name: sd-controlnet
+        hostPath:
+          path: /home/selab/ControlNet-v1-1/
+      - name: sd-embeddings
+        hostPath:
+          path: /media/selab/Transcend/StableDiffusion/models/embeddings
+      - name: sd-vae
+        hostPath:
+          path: /media/selab/Transcend/StableDiffusion/models/VAE
+      - name: sd-animatediff-model
+        hostPath: 
+          path: /media/selab/Transcend/StableDiffusion/extensions/sd-webui-animatediff/model
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: stable-diffusion-service
+  labels:
+    app: stable-diffusion-service
+spec:
+  type: NodePort
+  selector:
+    app: stable-diffusion
+  ports:
+    - name: comfyui
+      protocol: TCP
+      port: 8188
+      targetPort: 8188
+      nodePort: 30818
+    - name: uiux
+      protocol: TCP
+      port: 7860
+      targetPort: 7860
+      nodePort: 30786

@@ -1,0 +1,863 @@
+** ComfyUI startup time: 2024-07-14 08:26:52.064529
+** Platform: Linux
+** Python version: 3.10.12 (main, Mar 22 2024, 16:50:05) [GCC 11.4.0]
+** Python executable: /usr/bin/python3
+** Log path: /stable-diffusion-comfyui/comfyui.log
+
+Prestartup times for custom nodes:
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/rgthree-comfy
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI-Manager
+
+Total VRAM 16071 MB, total RAM 128580 MB
+pytorch version: 2.3.1+cu121
+xformers version: 0.0.27
+Set vram state to: NORMAL_VRAM
+Device: cuda:0 NVIDIA GeForce RTX 4080 : cudaMallocAsync
+Using xformers cross attention
+### Loading: ComfyUI-Impact-Pack (V5.18.13)
+generated new fontManager
+### Loading: ComfyUI-Impact-Pack (Subpack: V0.6)
+[Impact Pack] Wildcards loading done.
+### Loading: ComfyUI-Inspire-Pack (V0.65.5)
+### Loading: ComfyUI-Manager (V2.8.3)
+### ComfyUI Revision: UNKNOWN (The currently installed ComfyUI is not a Git repository)
+[VideoHelperSuite] - [0;33mWARNING[0m - Failed to import imageio_ffmpeg
+------------------------------------------
+[34mComfyroll Studio v1.76 : [92m 175 Nodes Loaded[0m
+------------------------------------------
+** For changes, please see patch notes at https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes/blob/main/Patch_Notes.md
+** For help, please see the wiki at https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes/wiki
+------------------------------------------
+[34mFizzleDorf Custom Nodes: [92mLoaded[0m
+Searge-SDXL v4.3.1 in /stable-diffusion-comfyui/custom_nodes/SeargeSDXL
+Traceback (most recent call last):
+  File "/stable-diffusion-comfyui/nodes.py", line 1931, in load_custom_node
+    module_spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/stable-diffusion-comfyui/custom_nodes/SeargeSDXL/__init__.py", line 35, in <module>
+    from .searge_sdxl import SEARGE_CLASS_MAPPINGS, SEARGE_DISPLAY_NAME_MAPPINGS
+  File "/stable-diffusion-comfyui/custom_nodes/SeargeSDXL/searge_sdxl.py", line 54, in <module>
+    from .modules.magic_box import SeargeMagicBox
+  File "/stable-diffusion-comfyui/custom_nodes/SeargeSDXL/modules/magic_box.py", line 38, in <module>
+    from .stage_latent_detailer import SeargeStageLatentDetailer
+  File "/stable-diffusion-comfyui/custom_nodes/SeargeSDXL/modules/stage_latent_detailer.py", line 29, in <module>
+    from comfy.sample import prepare_mask
+ImportError: cannot import name 'prepare_mask' from 'comfy.sample' (/stable-diffusion-comfyui/comfy/sample.py)
+
+Cannot import /stable-diffusion-comfyui/custom_nodes/SeargeSDXL module for custom nodes: cannot import name 'prepare_mask' from 'comfy.sample' (/stable-diffusion-comfyui/comfy/sample.py)
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/alter-list.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/model-list.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/extension-node-map.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json
+Collecting requirements-parser
+  Downloading requirements_parser-0.9.0-py3-none-any.whl (14 kB)
+Collecting types-setuptools>=69.1.0
+  Downloading types_setuptools-70.3.0.20240710-py3-none-any.whl (63 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.4/63.4 KB 2.3 MB/s eta 0:00:00
+Installing collected packages: types-setuptools, requirements-parser
+Successfully installed requirements-parser-0.9.0 types-setuptools-70.3.0.20240710
+Command executed successfully!
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+[36;20m[comfy_mtb] | INFO -> loaded [96m58[0m nodes successfuly[0m
+[36;20m[comfy_mtb] | INFO -> Some nodes (7) could not be loaded. This can be ignored, but go to http://None:8188/mtb if you want more information.[0m
+[0;33m[ReActor][0m - [38;5;173mSTATUS[0m - [0;32mRunning v0.4.1-b11 in ComfyUI[0m
+Torch version: 2.3.1+cu121
+[36;20m[comfyui_controlnet_aux] | INFO -> Using ckpts path: /stable-diffusion-comfyui/custom_nodes/comfyui_controlnet_aux/ckpts[0m
+[36;20m[comfyui_controlnet_aux] | INFO -> Using symlinks: False[0m
+[36;20m[comfyui_controlnet_aux] | INFO -> Using ort providers: ['CUDAExecutionProvider', 'DirectMLExecutionProvider', 'OpenVINOExecutionProvider', 'ROCMExecutionProvider', 'CPUExecutionProvider', 'CoreMLExecutionProvider'][0m
+Downloading: "https://download.pytorch.org/models/mobilenet_v2-b0353104.pth" to /root/.cache/torch/hub/checkpoints/mobilenet_v2-b0353104.pth
+Traceback (most recent call last):
+  File "/stable-diffusion-comfyui/nodes.py", line 1931, in load_custom_node
+    module_spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/stable-diffusion-comfyui/custom_nodes/efficiency-nodes-comfyui/__init__.py", line 9, in <module>
+    from  .efficiency_nodes import NODE_CLASS_MAPPINGS
+  File "/stable-diffusion-comfyui/custom_nodes/efficiency-nodes-comfyui/efficiency_nodes.py", line 46, in <module>
+    from .py import smZ_cfg_denoiser
+  File "/stable-diffusion-comfyui/custom_nodes/efficiency-nodes-comfyui/py/smZ_cfg_denoiser.py", line 7, in <module>
+    from comfy.samplers import KSampler, KSamplerX0Inpaint, wrap_model
+ImportError: cannot import name 'wrap_model' from 'comfy.samplers' (/stable-diffusion-comfyui/comfy/samplers.py)
+
+Cannot import /stable-diffusion-comfyui/custom_nodes/efficiency-nodes-comfyui module for custom nodes: cannot import name 'wrap_model' from 'comfy.samplers' (/stable-diffusion-comfyui/comfy/samplers.py)
+Total VRAM 16071 MB, total RAM 128580 MB
+pytorch version: 2.3.1+cu121
+xformers version: 0.0.27
+Set vram state to: NORMAL_VRAM
+Device: cuda:0 NVIDIA GeForce RTX 4080 : cudaMallocAsync
+Traceback (most recent call last):
+  File "/stable-diffusion-comfyui/nodes.py", line 1931, in load_custom_node
+    module_spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/stable-diffusion-comfyui/custom_nodes/facerestore_cf/__init__.py", line 8, in <module>
+    from custom_nodes.facerestore_cf.facelib.utils.face_restoration_helper import FaceRestoreHelper
+  File "/stable-diffusion-comfyui/custom_nodes/facerestore_cf/__init__.py", line 14, in <module>
+    from custom_nodes.facerestore_cf.basicsr.utils.registry import ARCH_REGISTRY
+  File "/stable-diffusion-comfyui/custom_nodes/facerestore_cf/basicsr/__init__.py", line 5, in <module>
+    from .losses import *
+  File "/stable-diffusion-comfyui/custom_nodes/facerestore_cf/basicsr/losses/__init__.py", line 5, in <module>
+    from .losses import (CharbonnierLoss, GANLoss, L1Loss, MSELoss, PerceptualLoss, WeightedTVLoss, g_path_regularize,
+  File "/stable-diffusion-comfyui/custom_nodes/facerestore_cf/basicsr/losses/losses.py", line 2, in <module>
+    import lpips
+ModuleNotFoundError: No module named 'lpips'
+
+Cannot import /stable-diffusion-comfyui/custom_nodes/facerestore_cf module for custom nodes: No module named 'lpips'
+
+[92m[rgthree] Loaded 34 magnificent nodes.[0m
+[92m[rgthree] Will use rgthree's optimized recursive execution.[0m
+
+[34mWAS Node Suite: [0mOpenCV Python FFMPEG support is enabled[0m
+[34mWAS Node Suite [93mWarning: [0m`ffmpeg_bin_path` is not set in `/stable-diffusion-comfyui/custom_nodes/was-node-suite-comfyui/was_suite_config.json` config file. Will attempt to use system ffmpeg binaries if available.[0m
+[34mWAS Node Suite: [0mFinished.[0m [32mLoaded[0m [0m217[0m [32mnodes successfully.[0m
+
+	[3m[93m"Every great dream begins with a dreamer."[0m[3m - Harriet Tubman[0m
+
+
+Import times for custom nodes:
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/sdxl_utility.py
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/e7ai-animate.py
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/sdxl_prompt_styler
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/wlsh_nodes
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI-seamless-tiling
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/websocket_image_save.py
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI-Logic
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ymc-node-suite-comfyui
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI_restart_sampling
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI_IPAdapter_plus
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/comfy-image-saver
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/rgthree-comfy
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI-WD14-Tagger
+   0.0 seconds (IMPORT FAILED): /stable-diffusion-comfyui/custom_nodes/efficiency-nodes-comfyui
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI-Custom-Scripts
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyMath
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI-Advanced-ControlNet
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI_essentials
+   0.0 seconds (IMPORT FAILED): /stable-diffusion-comfyui/custom_nodes/facerestore_cf
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI_UltimateSDUpscale
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI-VideoHelperSuite
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/Derfuu_ComfyUI_ModdedNodes
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI_Comfyroll_CustomNodes
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI-Manager
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI-Inspire-Pack
+   0.1 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI-AnimateDiff-Evolved
+   0.1 seconds (IMPORT FAILED): /stable-diffusion-comfyui/custom_nodes/SeargeSDXL
+   0.1 seconds: /stable-diffusion-comfyui/custom_nodes/comfyui-reactor-node
+   0.1 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI_FizzNodes
+   0.6 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI-Impact-Pack
+   0.7 seconds: /stable-diffusion-comfyui/custom_nodes/comfyui_controlnet_aux
+   0.7 seconds: /stable-diffusion-comfyui/custom_nodes/was-node-suite-comfyui
+  20.4 seconds: /stable-diffusion-comfyui/custom_nodes/comfy_mtb
+
+Starting server
+
+To see the GUI go to: http://0.0.0.0:8188
+FETCH DATA from: /stable-diffusion-comfyui/custom_nodes/ComfyUI-Manager/extension-node-map.json
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+[32m[rgthree][0m First run patching recursive_output_delete_if_changed and recursive_will_execute.[0m
+[33m[rgthree] Note: [0mIf execution seems broken due to forward ComfyUI changes, you can disable the optimization from rgthree settings in ComfyUI.[0m
+!!! Exception during processing!!! WAS_Number_Input_Switch.number_input_switch() got an unexpected keyword argument 'boolean_number'
+Traceback (most recent call last):
+  File "/stable-diffusion-comfyui/execution.py", line 151, in recursive_execute
+    output_data, output_ui = get_output_data(obj, input_data_all)
+  File "/stable-diffusion-comfyui/execution.py", line 81, in get_output_data
+    return_values = map_node_over_list(obj, input_data_all, obj.FUNCTION, allow_interrupt=True)
+  File "/stable-diffusion-comfyui/execution.py", line 74, in map_node_over_list
+    results.append(getattr(obj, func)(**slice_dict(input_data_all, i)))
+TypeError: WAS_Number_Input_Switch.number_input_switch() got an unexpected keyword argument 'boolean_number'
+
+Prompt executed in 0.00 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+model_type EPS
+Using xformers attention in VAE
+Using xformers attention in VAE
+Using xformers attention in VAE
+Using xformers attention in VAE
+Requested to load SDXLClipModel
+Loading 1 new model
+Requested to load SDXL
+Loading 1 new model
+  0%|          | 0/25 [00:00<?, ?it/s]  4%|▍         | 1/25 [00:00<00:15,  1.59it/s]  8%|▊         | 2/25 [00:01<00:12,  1.84it/s] 12%|█▏        | 3/25 [00:01<00:11,  1.94it/s] 16%|█▌        | 4/25 [00:02<00:10,  1.99it/s] 20%|██        | 5/25 [00:02<00:09,  2.02it/s] 24%|██▍       | 6/25 [00:03<00:09,  2.03it/s] 28%|██▊       | 7/25 [00:03<00:08,  2.04it/s] 32%|███▏      | 8/25 [00:04<00:08,  2.05it/s] 36%|███▌      | 9/25 [00:04<00:07,  2.06it/s] 40%|████      | 10/25 [00:04<00:07,  2.06it/s] 44%|████▍     | 11/25 [00:05<00:06,  2.06it/s] 48%|████▊     | 12/25 [00:05<00:06,  2.06it/s] 52%|█████▏    | 13/25 [00:06<00:05,  2.07it/s] 56%|█████▌    | 14/25 [00:06<00:05,  2.07it/s] 60%|██████    | 15/25 [00:07<00:04,  2.07it/s] 64%|██████▍   | 16/25 [00:07<00:04,  2.07it/s] 68%|██████▊   | 17/25 [00:08<00:03,  2.07it/s] 72%|███████▏  | 18/25 [00:08<00:03,  2.07it/s] 76%|███████▌  | 19/25 [00:09<00:02,  2.07it/s] 80%|████████  | 20/25 [00:09<00:02,  2.07it/s] 84%|████████▍ | 21/25 [00:10<00:01,  2.07it/s] 88%|████████▊ | 22/25 [00:10<00:01,  2.07it/s] 92%|█████████▏| 23/25 [00:11<00:00,  2.07it/s] 96%|█████████▌| 24/25 [00:11<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.04it/s]
+Requested to load AutoencoderKL
+Loading 1 new model
+Prompt executed in 15.31 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+  0%|          | 0/25 [00:00<?, ?it/s]  4%|▍         | 1/25 [00:00<00:12,  1.97it/s]  8%|▊         | 2/25 [00:00<00:11,  2.03it/s] 12%|█▏        | 3/25 [00:01<00:10,  2.05it/s] 16%|█▌        | 4/25 [00:01<00:10,  2.05it/s] 20%|██        | 5/25 [00:02<00:09,  2.06it/s] 24%|██▍       | 6/25 [00:02<00:09,  2.06it/s] 28%|██▊       | 7/25 [00:03<00:08,  2.06it/s] 32%|███▏      | 8/25 [00:03<00:08,  2.07it/s] 36%|███▌      | 9/25 [00:04<00:07,  2.07it/s] 40%|████      | 10/25 [00:04<00:07,  2.07it/s] 44%|████▍     | 11/25 [00:05<00:06,  2.07it/s] 48%|████▊     | 12/25 [00:05<00:06,  2.07it/s] 52%|█████▏    | 13/25 [00:06<00:05,  2.07it/s] 56%|█████▌    | 14/25 [00:06<00:05,  2.07it/s] 60%|██████    | 15/25 [00:07<00:04,  2.07it/s] 64%|██████▍   | 16/25 [00:07<00:04,  2.07it/s] 68%|██████▊   | 17/25 [00:08<00:03,  2.07it/s] 72%|███████▏  | 18/25 [00:08<00:03,  2.07it/s] 76%|███████▌  | 19/25 [00:09<00:02,  2.07it/s] 80%|████████  | 20/25 [00:09<00:02,  2.07it/s] 84%|████████▍ | 21/25 [00:10<00:01,  2.07it/s] 88%|████████▊ | 22/25 [00:10<00:01,  2.07it/s] 92%|█████████▏| 23/25 [00:11<00:00,  2.07it/s] 96%|█████████▌| 24/25 [00:11<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.06it/s]
+Prompt executed in 12.94 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+  0%|          | 0/25 [00:00<?, ?it/s]  4%|▍         | 1/25 [00:00<00:12,  2.00it/s]  8%|▊         | 2/25 [00:00<00:11,  2.04it/s] 12%|█▏        | 3/25 [00:01<00:10,  2.05it/s] 16%|█▌        | 4/25 [00:01<00:10,  2.06it/s] 20%|██        | 5/25 [00:02<00:09,  2.06it/s] 24%|██▍       | 6/25 [00:02<00:09,  2.07it/s] 28%|██▊       | 7/25 [00:03<00:08,  2.07it/s] 32%|███▏      | 8/25 [00:03<00:08,  2.07it/s] 36%|███▌      | 9/25 [00:04<00:07,  2.07it/s] 40%|████      | 10/25 [00:04<00:07,  2.07it/s] 44%|████▍     | 11/25 [00:05<00:06,  2.07it/s] 48%|████▊     | 12/25 [00:05<00:06,  2.07it/s] 52%|█████▏    | 13/25 [00:06<00:05,  2.07it/s] 56%|█████▌    | 14/25 [00:06<00:05,  2.07it/s] 60%|██████    | 15/25 [00:07<00:04,  2.07it/s] 64%|██████▍   | 16/25 [00:07<00:04,  2.07it/s] 68%|██████▊   | 17/25 [00:08<00:03,  2.07it/s] 72%|███████▏  | 18/25 [00:08<00:03,  2.07it/s] 76%|███████▌  | 19/25 [00:09<00:02,  2.07it/s] 80%|████████  | 20/25 [00:09<00:02,  2.07it/s] 84%|████████▍ | 21/25 [00:10<00:01,  2.07it/s] 88%|████████▊ | 22/25 [00:10<00:01,  2.07it/s] 92%|█████████▏| 23/25 [00:11<00:00,  2.07it/s] 96%|█████████▌| 24/25 [00:11<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]
+Prompt executed in 12.94 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+  0%|          | 0/25 [00:00<?, ?it/s]  4%|▍         | 1/25 [00:00<00:11,  2.02it/s]  8%|▊         | 2/25 [00:00<00:11,  2.05it/s] 12%|█▏        | 3/25 [00:01<00:10,  2.06it/s] 16%|█▌        | 4/25 [00:01<00:10,  2.06it/s] 20%|██        | 5/25 [00:02<00:09,  2.06it/s] 24%|██▍       | 6/25 [00:02<00:09,  2.07it/s] 28%|██▊       | 7/25 [00:03<00:08,  2.07it/s] 32%|███▏      | 8/25 [00:03<00:08,  2.07it/s] 36%|███▌      | 9/25 [00:04<00:07,  2.07it/s] 40%|████      | 10/25 [00:04<00:07,  2.07it/s] 44%|████▍     | 11/25 [00:05<00:06,  2.07it/s] 48%|████▊     | 12/25 [00:05<00:06,  2.07it/s] 52%|█████▏    | 13/25 [00:06<00:05,  2.07it/s] 56%|█████▌    | 14/25 [00:06<00:05,  2.07it/s] 60%|██████    | 15/25 [00:07<00:04,  2.07it/s] 64%|██████▍   | 16/25 [00:07<00:04,  2.07it/s] 68%|██████▊   | 17/25 [00:08<00:03,  2.07it/s] 72%|███████▏  | 18/25 [00:08<00:03,  2.07it/s] 76%|███████▌  | 19/25 [00:09<00:02,  2.07it/s] 80%|████████  | 20/25 [00:09<00:02,  2.07it/s] 84%|████████▍ | 21/25 [00:10<00:01,  2.07it/s] 88%|████████▊ | 22/25 [00:10<00:01,  2.07it/s] 92%|█████████▏| 23/25 [00:11<00:00,  2.07it/s] 96%|█████████▌| 24/25 [00:11<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]
+Prompt executed in 12.93 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+  0%|          | 0/25 [00:00<?, ?it/s]  4%|▍         | 1/25 [00:00<00:11,  2.00it/s]  8%|▊         | 2/25 [00:00<00:11,  2.04it/s] 12%|█▏        | 3/25 [00:01<00:10,  2.05it/s] 16%|█▌        | 4/25 [00:01<00:10,  2.06it/s] 20%|██        | 5/25 [00:02<00:09,  2.06it/s] 24%|██▍       | 6/25 [00:02<00:09,  2.07it/s] 28%|██▊       | 7/25 [00:03<00:08,  2.07it/s] 32%|███▏      | 8/25 [00:03<00:08,  2.07it/s] 36%|███▌      | 9/25 [00:04<00:07,  2.07it/s] 40%|████      | 10/25 [00:04<00:07,  2.07it/s] 44%|████▍     | 11/25 [00:05<00:06,  2.07it/s] 48%|████▊     | 12/25 [00:05<00:06,  2.07it/s] 52%|█████▏    | 13/25 [00:06<00:05,  2.07it/s] 56%|█████▌    | 14/25 [00:06<00:05,  2.07it/s] 60%|██████    | 15/25 [00:07<00:04,  2.07it/s] 64%|██████▍   | 16/25 [00:07<00:04,  2.07it/s] 68%|██████▊   | 17/25 [00:08<00:03,  2.07it/s] 72%|███████▏  | 18/25 [00:08<00:03,  2.07it/s] 76%|███████▌  | 19/25 [00:09<00:02,  2.07it/s] 80%|████████  | 20/25 [00:09<00:02,  2.07it/s] 84%|████████▍ | 21/25 [00:10<00:01,  2.07it/s] 88%|████████▊ | 22/25 [00:10<00:01,  2.07it/s] 92%|█████████▏| 23/25 [00:11<00:00,  2.07it/s] 96%|█████████▌| 24/25 [00:11<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]
+Prompt executed in 12.95 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+  0%|          | 0/25 [00:00<?, ?it/s]  4%|▍         | 1/25 [00:00<00:12,  1.97it/s]  8%|▊         | 2/25 [00:00<00:11,  2.03it/s] 12%|█▏        | 3/25 [00:01<00:10,  2.05it/s] 16%|█▌        | 4/25 [00:01<00:10,  2.06it/s] 20%|██        | 5/25 [00:02<00:09,  2.06it/s] 24%|██▍       | 6/25 [00:02<00:09,  2.07it/s] 28%|██▊       | 7/25 [00:03<00:08,  2.07it/s] 32%|███▏      | 8/25 [00:03<00:08,  2.07it/s] 36%|███▌      | 9/25 [00:04<00:07,  2.07it/s] 40%|████      | 10/25 [00:04<00:07,  2.07it/s] 44%|████▍     | 11/25 [00:05<00:06,  2.07it/s] 48%|████▊     | 12/25 [00:05<00:06,  2.07it/s] 52%|█████▏    | 13/25 [00:06<00:05,  2.07it/s] 56%|█████▌    | 14/25 [00:06<00:05,  2.07it/s] 60%|██████    | 15/25 [00:07<00:04,  2.07it/s] 64%|██████▍   | 16/25 [00:07<00:04,  2.07it/s] 68%|██████▊   | 17/25 [00:08<00:03,  2.07it/s] 72%|███████▏  | 18/25 [00:08<00:03,  2.07it/s] 76%|███████▌  | 19/25 [00:09<00:02,  2.07it/s] 80%|████████  | 20/25 [00:09<00:02,  2.07it/s] 84%|████████▍ | 21/25 [00:10<00:01,  2.07it/s] 88%|████████▊ | 22/25 [00:10<00:01,  2.07it/s] 92%|█████████▏| 23/25 [00:11<00:00,  2.07it/s] 96%|█████████▌| 24/25 [00:11<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]
+Prompt executed in 12.96 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+  0%|          | 0/25 [00:00<?, ?it/s]  4%|▍         | 1/25 [00:00<00:12,  1.97it/s]  8%|▊         | 2/25 [00:00<00:11,  2.03it/s] 12%|█▏        | 3/25 [00:01<00:10,  2.05it/s] 16%|█▌        | 4/25 [00:01<00:10,  2.06it/s] 20%|██        | 5/25 [00:02<00:09,  2.06it/s] 24%|██▍       | 6/25 [00:02<00:09,  2.07it/s] 28%|██▊       | 7/25 [00:03<00:08,  2.07it/s] 32%|███▏      | 8/25 [00:03<00:08,  2.07it/s] 36%|███▌      | 9/25 [00:04<00:07,  2.07it/s] 40%|████      | 10/25 [00:04<00:07,  2.07it/s] 44%|████▍     | 11/25 [00:05<00:06,  2.07it/s] 48%|████▊     | 12/25 [00:05<00:06,  2.07it/s] 52%|█████▏    | 13/25 [00:06<00:05,  2.07it/s] 56%|█████▌    | 14/25 [00:06<00:05,  2.07it/s] 60%|██████    | 15/25 [00:07<00:04,  2.07it/s] 64%|██████▍   | 16/25 [00:07<00:04,  2.07it/s] 68%|██████▊   | 17/25 [00:08<00:03,  2.07it/s] 72%|███████▏  | 18/25 [00:08<00:03,  2.07it/s] 76%|███████▌  | 19/25 [00:09<00:02,  2.07it/s] 80%|████████  | 20/25 [00:09<00:02,  2.07it/s] 84%|████████▍ | 21/25 [00:10<00:01,  2.07it/s] 88%|████████▊ | 22/25 [00:10<00:01,  2.07it/s] 92%|█████████▏| 23/25 [00:11<00:00,  2.07it/s] 96%|█████████▌| 24/25 [00:11<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.06it/s]
+  0%|          | 0/22 [00:00<?, ?it/s]  5%|▍         | 1/22 [00:02<00:50,  2.42s/it]  9%|▉         | 2/22 [00:04<00:48,  2.42s/it] 14%|█▎        | 3/22 [00:07<00:45,  2.41s/it] 18%|█▊        | 4/22 [00:09<00:43,  2.41s/it] 23%|██▎       | 5/22 [00:12<00:41,  2.41s/it] 27%|██▋       | 6/22 [00:14<00:38,  2.41s/it] 32%|███▏      | 7/22 [00:16<00:36,  2.41s/it] 36%|███▋      | 8/22 [00:19<00:33,  2.41s/it] 41%|████      | 9/22 [00:21<00:31,  2.41s/it] 45%|████▌     | 10/22 [00:24<00:28,  2.41s/it] 50%|█████     | 11/22 [00:26<00:26,  2.41s/it] 55%|█████▍    | 12/22 [00:28<00:24,  2.41s/it] 59%|█████▉    | 13/22 [00:31<00:21,  2.41s/it] 64%|██████▎   | 14/22 [00:33<00:19,  2.41s/it] 68%|██████▊   | 15/22 [00:36<00:16,  2.41s/it] 73%|███████▎  | 16/22 [00:38<00:14,  2.41s/it] 77%|███████▋  | 17/22 [00:41<00:12,  2.41s/it] 82%|████████▏ | 18/22 [00:43<00:09,  2.41s/it] 86%|████████▋ | 19/22 [00:45<00:07,  2.41s/it] 91%|█████████ | 20/22 [00:48<00:04,  2.41s/it] 95%|█████████▌| 21/22 [00:50<00:02,  2.41s/it]100%|██████████| 22/22 [00:53<00:00,  2.41s/it]100%|██████████| 22/22 [00:53<00:00,  2.41s/it]
+Requested to load AutoencoderKL
+Loading 1 new model
+Prompt executed in 69.55 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+  0%|          | 0/25 [00:00<?, ?it/s]  4%|▍         | 1/25 [00:00<00:11,  2.01it/s]  8%|▊         | 2/25 [00:00<00:11,  2.05it/s] 12%|█▏        | 3/25 [00:01<00:10,  2.06it/s] 16%|█▌        | 4/25 [00:01<00:10,  2.06it/s] 20%|██        | 5/25 [00:02<00:09,  2.06it/s] 24%|██▍       | 6/25 [00:02<00:09,  2.07it/s] 28%|██▊       | 7/25 [00:03<00:08,  2.07it/s] 32%|███▏      | 8/25 [00:03<00:08,  2.07it/s] 36%|███▌      | 9/25 [00:04<00:07,  2.07it/s] 40%|████      | 10/25 [00:04<00:07,  2.07it/s] 44%|████▍     | 11/25 [00:05<00:06,  2.07it/s] 48%|████▊     | 12/25 [00:05<00:06,  2.07it/s] 52%|█████▏    | 13/25 [00:06<00:05,  2.07it/s] 56%|█████▌    | 14/25 [00:06<00:05,  2.07it/s] 60%|██████    | 15/25 [00:07<00:04,  2.07it/s] 64%|██████▍   | 16/25 [00:07<00:04,  2.07it/s] 68%|██████▊   | 17/25 [00:08<00:03,  2.07it/s] 72%|███████▏  | 18/25 [00:08<00:03,  2.07it/s] 76%|███████▌  | 19/25 [00:09<00:02,  2.07it/s] 80%|████████  | 20/25 [00:09<00:02,  2.07it/s] 84%|████████▍ | 21/25 [00:10<00:01,  2.07it/s] 88%|████████▊ | 22/25 [00:10<00:01,  2.07it/s] 92%|█████████▏| 23/25 [00:11<00:00,  2.07it/s] 96%|█████████▌| 24/25 [00:11<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]
+Prompt executed in 12.90 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+  0%|          | 0/25 [00:00<?, ?it/s]  4%|▍         | 1/25 [00:00<00:04,  5.39it/s]  8%|▊         | 2/25 [00:00<00:04,  5.56it/s] 12%|█▏        | 3/25 [00:00<00:03,  5.83it/s] 16%|█▌        | 4/25 [00:00<00:03,  5.96it/s] 20%|██        | 5/25 [00:00<00:03,  6.04it/s] 24%|██▍       | 6/25 [00:01<00:03,  6.08it/s] 28%|██▊       | 7/25 [00:01<00:02,  6.11it/s] 32%|███▏      | 8/25 [00:01<00:02,  6.13it/s] 36%|███▌      | 9/25 [00:01<00:02,  6.14it/s] 40%|████      | 10/25 [00:01<00:02,  6.15it/s] 44%|████▍     | 11/25 [00:01<00:02,  6.16it/s] 48%|████▊     | 12/25 [00:01<00:02,  6.16it/s] 52%|█████▏    | 13/25 [00:02<00:01,  6.16it/s] 56%|█████▌    | 14/25 [00:02<00:01,  6.16it/s] 60%|██████    | 15/25 [00:02<00:01,  6.17it/s] 64%|██████▍   | 16/25 [00:02<00:01,  6.17it/s] 68%|██████▊   | 17/25 [00:02<00:01,  6.16it/s] 72%|███████▏  | 18/25 [00:02<00:01,  6.17it/s] 76%|███████▌  | 19/25 [00:03<00:00,  6.17it/s] 80%|████████  | 20/25 [00:03<00:00,  6.17it/s] 84%|████████▍ | 21/25 [00:03<00:00,  6.17it/s] 88%|████████▊ | 22/25 [00:03<00:00,  6.17it/s] 92%|█████████▏| 23/25 [00:03<00:00,  6.18it/s] 96%|█████████▌| 24/25 [00:03<00:00,  6.18it/s]100%|██████████| 25/25 [00:04<00:00,  6.18it/s]100%|██████████| 25/25 [00:04<00:00,  6.11it/s]
+Prompt executed in 4.37 seconds
+[Impact Pack] Wildcards loading done.
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+Prompt executed in 0.25 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+Prompt executed in 0.00 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+Prompt executed in 0.00 seconds
+Update ComfyUI
+[ComfyUI-Manager] Try fixing 'dubious repository' error on 'ComfyUI' repository
+path=/stable-diffusion-comfyui / repo.is_dirty: True
+ComfyUI update fail: Cmd('git') failed due to: exit code(1)
+  cmdline: git pull -v -- origin
+  stderr: 'error: Your local changes to the following files would be overwritten by merge:
+error: The following untracked working tree files would be overwritten by merge:'
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+Prompt executed in 0.00 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+Prompt executed in 0.00 seconds
+** ComfyUI startup time: 2024-07-14 08:26:52.064529
+** Platform: Linux
+** Python version: 3.10.12 (main, Mar 22 2024, 16:50:05) [GCC 11.4.0]
+** Python executable: /usr/bin/python3
+** Log path: /stable-diffusion-comfyui/comfyui.log
+
+Prestartup times for custom nodes:
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/rgthree-comfy
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI-Manager
+
+Total VRAM 16071 MB, total RAM 128580 MB
+pytorch version: 2.3.1+cu121
+xformers version: 0.0.27
+Set vram state to: NORMAL_VRAM
+Device: cuda:0 NVIDIA GeForce RTX 4080 : cudaMallocAsync
+Using xformers cross attention
+### Loading: ComfyUI-Impact-Pack (V5.18.13)
+generated new fontManager
+### Loading: ComfyUI-Impact-Pack (Subpack: V0.6)
+[Impact Pack] Wildcards loading done.
+### Loading: ComfyUI-Inspire-Pack (V0.65.5)
+### Loading: ComfyUI-Manager (V2.8.3)
+### ComfyUI Revision: UNKNOWN (The currently installed ComfyUI is not a Git repository)
+[VideoHelperSuite] - [0;33mWARNING[0m - Failed to import imageio_ffmpeg
+------------------------------------------
+[34mComfyroll Studio v1.76 : [92m 175 Nodes Loaded[0m
+------------------------------------------
+** For changes, please see patch notes at https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes/blob/main/Patch_Notes.md
+** For help, please see the wiki at https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes/wiki
+------------------------------------------
+[34mFizzleDorf Custom Nodes: [92mLoaded[0m
+Searge-SDXL v4.3.1 in /stable-diffusion-comfyui/custom_nodes/SeargeSDXL
+Traceback (most recent call last):
+  File "/stable-diffusion-comfyui/nodes.py", line 1931, in load_custom_node
+    module_spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/stable-diffusion-comfyui/custom_nodes/SeargeSDXL/__init__.py", line 35, in <module>
+    from .searge_sdxl import SEARGE_CLASS_MAPPINGS, SEARGE_DISPLAY_NAME_MAPPINGS
+  File "/stable-diffusion-comfyui/custom_nodes/SeargeSDXL/searge_sdxl.py", line 54, in <module>
+    from .modules.magic_box import SeargeMagicBox
+  File "/stable-diffusion-comfyui/custom_nodes/SeargeSDXL/modules/magic_box.py", line 38, in <module>
+    from .stage_latent_detailer import SeargeStageLatentDetailer
+  File "/stable-diffusion-comfyui/custom_nodes/SeargeSDXL/modules/stage_latent_detailer.py", line 29, in <module>
+    from comfy.sample import prepare_mask
+ImportError: cannot import name 'prepare_mask' from 'comfy.sample' (/stable-diffusion-comfyui/comfy/sample.py)
+
+Cannot import /stable-diffusion-comfyui/custom_nodes/SeargeSDXL module for custom nodes: cannot import name 'prepare_mask' from 'comfy.sample' (/stable-diffusion-comfyui/comfy/sample.py)
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/alter-list.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/model-list.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/extension-node-map.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json
+Collecting requirements-parser
+  Downloading requirements_parser-0.9.0-py3-none-any.whl (14 kB)
+Collecting types-setuptools>=69.1.0
+  Downloading types_setuptools-70.3.0.20240710-py3-none-any.whl (63 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.4/63.4 KB 2.3 MB/s eta 0:00:00
+Installing collected packages: types-setuptools, requirements-parser
+Successfully installed requirements-parser-0.9.0 types-setuptools-70.3.0.20240710
+Command executed successfully!
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+[36;20m[comfy_mtb] | INFO -> loaded [96m58[0m nodes successfuly[0m
+[36;20m[comfy_mtb] | INFO -> Some nodes (7) could not be loaded. This can be ignored, but go to http://None:8188/mtb if you want more information.[0m
+[0;33m[ReActor][0m - [38;5;173mSTATUS[0m - [0;32mRunning v0.4.1-b11 in ComfyUI[0m
+Torch version: 2.3.1+cu121
+[36;20m[comfyui_controlnet_aux] | INFO -> Using ckpts path: /stable-diffusion-comfyui/custom_nodes/comfyui_controlnet_aux/ckpts[0m
+[36;20m[comfyui_controlnet_aux] | INFO -> Using symlinks: False[0m
+[36;20m[comfyui_controlnet_aux] | INFO -> Using ort providers: ['CUDAExecutionProvider', 'DirectMLExecutionProvider', 'OpenVINOExecutionProvider', 'ROCMExecutionProvider', 'CPUExecutionProvider', 'CoreMLExecutionProvider'][0m
+Downloading: "https://download.pytorch.org/models/mobilenet_v2-b0353104.pth" to /root/.cache/torch/hub/checkpoints/mobilenet_v2-b0353104.pth
+Traceback (most recent call last):
+  File "/stable-diffusion-comfyui/nodes.py", line 1931, in load_custom_node
+    module_spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/stable-diffusion-comfyui/custom_nodes/efficiency-nodes-comfyui/__init__.py", line 9, in <module>
+    from  .efficiency_nodes import NODE_CLASS_MAPPINGS
+  File "/stable-diffusion-comfyui/custom_nodes/efficiency-nodes-comfyui/efficiency_nodes.py", line 46, in <module>
+    from .py import smZ_cfg_denoiser
+  File "/stable-diffusion-comfyui/custom_nodes/efficiency-nodes-comfyui/py/smZ_cfg_denoiser.py", line 7, in <module>
+    from comfy.samplers import KSampler, KSamplerX0Inpaint, wrap_model
+ImportError: cannot import name 'wrap_model' from 'comfy.samplers' (/stable-diffusion-comfyui/comfy/samplers.py)
+
+Cannot import /stable-diffusion-comfyui/custom_nodes/efficiency-nodes-comfyui module for custom nodes: cannot import name 'wrap_model' from 'comfy.samplers' (/stable-diffusion-comfyui/comfy/samplers.py)
+Total VRAM 16071 MB, total RAM 128580 MB
+pytorch version: 2.3.1+cu121
+xformers version: 0.0.27
+Set vram state to: NORMAL_VRAM
+Device: cuda:0 NVIDIA GeForce RTX 4080 : cudaMallocAsync
+Traceback (most recent call last):
+  File "/stable-diffusion-comfyui/nodes.py", line 1931, in load_custom_node
+    module_spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/stable-diffusion-comfyui/custom_nodes/facerestore_cf/__init__.py", line 8, in <module>
+    from custom_nodes.facerestore_cf.facelib.utils.face_restoration_helper import FaceRestoreHelper
+  File "/stable-diffusion-comfyui/custom_nodes/facerestore_cf/__init__.py", line 14, in <module>
+    from custom_nodes.facerestore_cf.basicsr.utils.registry import ARCH_REGISTRY
+  File "/stable-diffusion-comfyui/custom_nodes/facerestore_cf/basicsr/__init__.py", line 5, in <module>
+    from .losses import *
+  File "/stable-diffusion-comfyui/custom_nodes/facerestore_cf/basicsr/losses/__init__.py", line 5, in <module>
+    from .losses import (CharbonnierLoss, GANLoss, L1Loss, MSELoss, PerceptualLoss, WeightedTVLoss, g_path_regularize,
+  File "/stable-diffusion-comfyui/custom_nodes/facerestore_cf/basicsr/losses/losses.py", line 2, in <module>
+    import lpips
+ModuleNotFoundError: No module named 'lpips'
+
+Cannot import /stable-diffusion-comfyui/custom_nodes/facerestore_cf module for custom nodes: No module named 'lpips'
+
+[92m[rgthree] Loaded 34 magnificent nodes.[0m
+[92m[rgthree] Will use rgthree's optimized recursive execution.[0m
+
+[34mWAS Node Suite: [0mOpenCV Python FFMPEG support is enabled[0m
+[34mWAS Node Suite [93mWarning: [0m`ffmpeg_bin_path` is not set in `/stable-diffusion-comfyui/custom_nodes/was-node-suite-comfyui/was_suite_config.json` config file. Will attempt to use system ffmpeg binaries if available.[0m
+[34mWAS Node Suite: [0mFinished.[0m [32mLoaded[0m [0m217[0m [32mnodes successfully.[0m
+
+	[3m[93m"Every great dream begins with a dreamer."[0m[3m - Harriet Tubman[0m
+
+
+Import times for custom nodes:
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/sdxl_utility.py
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/e7ai-animate.py
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/sdxl_prompt_styler
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/wlsh_nodes
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI-seamless-tiling
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/websocket_image_save.py
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI-Logic
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ymc-node-suite-comfyui
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI_restart_sampling
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI_IPAdapter_plus
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/comfy-image-saver
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/rgthree-comfy
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI-WD14-Tagger
+   0.0 seconds (IMPORT FAILED): /stable-diffusion-comfyui/custom_nodes/efficiency-nodes-comfyui
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI-Custom-Scripts
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyMath
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI-Advanced-ControlNet
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI_essentials
+   0.0 seconds (IMPORT FAILED): /stable-diffusion-comfyui/custom_nodes/facerestore_cf
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI_UltimateSDUpscale
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI-VideoHelperSuite
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/Derfuu_ComfyUI_ModdedNodes
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI_Comfyroll_CustomNodes
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI-Manager
+   0.0 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI-Inspire-Pack
+   0.1 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI-AnimateDiff-Evolved
+   0.1 seconds (IMPORT FAILED): /stable-diffusion-comfyui/custom_nodes/SeargeSDXL
+   0.1 seconds: /stable-diffusion-comfyui/custom_nodes/comfyui-reactor-node
+   0.1 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI_FizzNodes
+   0.6 seconds: /stable-diffusion-comfyui/custom_nodes/ComfyUI-Impact-Pack
+   0.7 seconds: /stable-diffusion-comfyui/custom_nodes/comfyui_controlnet_aux
+   0.7 seconds: /stable-diffusion-comfyui/custom_nodes/was-node-suite-comfyui
+  20.4 seconds: /stable-diffusion-comfyui/custom_nodes/comfy_mtb
+
+Starting server
+
+To see the GUI go to: http://0.0.0.0:8188
+FETCH DATA from: /stable-diffusion-comfyui/custom_nodes/ComfyUI-Manager/extension-node-map.json
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+[32m[rgthree][0m First run patching recursive_output_delete_if_changed and recursive_will_execute.[0m
+[33m[rgthree] Note: [0mIf execution seems broken due to forward ComfyUI changes, you can disable the optimization from rgthree settings in ComfyUI.[0m
+!!! Exception during processing!!! WAS_Number_Input_Switch.number_input_switch() got an unexpected keyword argument 'boolean_number'
+Traceback (most recent call last):
+  File "/stable-diffusion-comfyui/execution.py", line 151, in recursive_execute
+    output_data, output_ui = get_output_data(obj, input_data_all)
+  File "/stable-diffusion-comfyui/execution.py", line 81, in get_output_data
+    return_values = map_node_over_list(obj, input_data_all, obj.FUNCTION, allow_interrupt=True)
+  File "/stable-diffusion-comfyui/execution.py", line 74, in map_node_over_list
+    results.append(getattr(obj, func)(**slice_dict(input_data_all, i)))
+TypeError: WAS_Number_Input_Switch.number_input_switch() got an unexpected keyword argument 'boolean_number'
+
+Prompt executed in 0.00 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+model_type EPS
+Using xformers attention in VAE
+Using xformers attention in VAE
+Using xformers attention in VAE
+Using xformers attention in VAE
+Requested to load SDXLClipModel
+Loading 1 new model
+Requested to load SDXL
+Loading 1 new model
+  0%|          | 0/25 [00:00<?, ?it/s]  4%|▍         | 1/25 [00:00<00:15,  1.59it/s]  8%|▊         | 2/25 [00:01<00:12,  1.84it/s] 12%|█▏        | 3/25 [00:01<00:11,  1.94it/s] 16%|█▌        | 4/25 [00:02<00:10,  1.99it/s] 20%|██        | 5/25 [00:02<00:09,  2.02it/s] 24%|██▍       | 6/25 [00:03<00:09,  2.03it/s] 28%|██▊       | 7/25 [00:03<00:08,  2.04it/s] 32%|███▏      | 8/25 [00:04<00:08,  2.05it/s] 36%|███▌      | 9/25 [00:04<00:07,  2.06it/s] 40%|████      | 10/25 [00:04<00:07,  2.06it/s] 44%|████▍     | 11/25 [00:05<00:06,  2.06it/s] 48%|████▊     | 12/25 [00:05<00:06,  2.06it/s] 52%|█████▏    | 13/25 [00:06<00:05,  2.07it/s] 56%|█████▌    | 14/25 [00:06<00:05,  2.07it/s] 60%|██████    | 15/25 [00:07<00:04,  2.07it/s] 64%|██████▍   | 16/25 [00:07<00:04,  2.07it/s] 68%|██████▊   | 17/25 [00:08<00:03,  2.07it/s] 72%|███████▏  | 18/25 [00:08<00:03,  2.07it/s] 76%|███████▌  | 19/25 [00:09<00:02,  2.07it/s] 80%|████████  | 20/25 [00:09<00:02,  2.07it/s] 84%|████████▍ | 21/25 [00:10<00:01,  2.07it/s] 88%|████████▊ | 22/25 [00:10<00:01,  2.07it/s] 92%|█████████▏| 23/25 [00:11<00:00,  2.07it/s] 96%|█████████▌| 24/25 [00:11<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.04it/s]
+Requested to load AutoencoderKL
+Loading 1 new model
+Prompt executed in 15.31 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+  0%|          | 0/25 [00:00<?, ?it/s]  4%|▍         | 1/25 [00:00<00:12,  1.97it/s]  8%|▊         | 2/25 [00:00<00:11,  2.03it/s] 12%|█▏        | 3/25 [00:01<00:10,  2.05it/s] 16%|█▌        | 4/25 [00:01<00:10,  2.05it/s] 20%|██        | 5/25 [00:02<00:09,  2.06it/s] 24%|██▍       | 6/25 [00:02<00:09,  2.06it/s] 28%|██▊       | 7/25 [00:03<00:08,  2.06it/s] 32%|███▏      | 8/25 [00:03<00:08,  2.07it/s] 36%|███▌      | 9/25 [00:04<00:07,  2.07it/s] 40%|████      | 10/25 [00:04<00:07,  2.07it/s] 44%|████▍     | 11/25 [00:05<00:06,  2.07it/s] 48%|████▊     | 12/25 [00:05<00:06,  2.07it/s] 52%|█████▏    | 13/25 [00:06<00:05,  2.07it/s] 56%|█████▌    | 14/25 [00:06<00:05,  2.07it/s] 60%|██████    | 15/25 [00:07<00:04,  2.07it/s] 64%|██████▍   | 16/25 [00:07<00:04,  2.07it/s] 68%|██████▊   | 17/25 [00:08<00:03,  2.07it/s] 72%|███████▏  | 18/25 [00:08<00:03,  2.07it/s] 76%|███████▌  | 19/25 [00:09<00:02,  2.07it/s] 80%|████████  | 20/25 [00:09<00:02,  2.07it/s] 84%|████████▍ | 21/25 [00:10<00:01,  2.07it/s] 88%|████████▊ | 22/25 [00:10<00:01,  2.07it/s] 92%|█████████▏| 23/25 [00:11<00:00,  2.07it/s] 96%|█████████▌| 24/25 [00:11<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.06it/s]
+Prompt executed in 12.94 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+  0%|          | 0/25 [00:00<?, ?it/s]  4%|▍         | 1/25 [00:00<00:12,  2.00it/s]  8%|▊         | 2/25 [00:00<00:11,  2.04it/s] 12%|█▏        | 3/25 [00:01<00:10,  2.05it/s] 16%|█▌        | 4/25 [00:01<00:10,  2.06it/s] 20%|██        | 5/25 [00:02<00:09,  2.06it/s] 24%|██▍       | 6/25 [00:02<00:09,  2.07it/s] 28%|██▊       | 7/25 [00:03<00:08,  2.07it/s] 32%|███▏      | 8/25 [00:03<00:08,  2.07it/s] 36%|███▌      | 9/25 [00:04<00:07,  2.07it/s] 40%|████      | 10/25 [00:04<00:07,  2.07it/s] 44%|████▍     | 11/25 [00:05<00:06,  2.07it/s] 48%|████▊     | 12/25 [00:05<00:06,  2.07it/s] 52%|█████▏    | 13/25 [00:06<00:05,  2.07it/s] 56%|█████▌    | 14/25 [00:06<00:05,  2.07it/s] 60%|██████    | 15/25 [00:07<00:04,  2.07it/s] 64%|██████▍   | 16/25 [00:07<00:04,  2.07it/s] 68%|██████▊   | 17/25 [00:08<00:03,  2.07it/s] 72%|███████▏  | 18/25 [00:08<00:03,  2.07it/s] 76%|███████▌  | 19/25 [00:09<00:02,  2.07it/s] 80%|████████  | 20/25 [00:09<00:02,  2.07it/s] 84%|████████▍ | 21/25 [00:10<00:01,  2.07it/s] 88%|████████▊ | 22/25 [00:10<00:01,  2.07it/s] 92%|█████████▏| 23/25 [00:11<00:00,  2.07it/s] 96%|█████████▌| 24/25 [00:11<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]
+Prompt executed in 12.94 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+  0%|          | 0/25 [00:00<?, ?it/s]  4%|▍         | 1/25 [00:00<00:11,  2.02it/s]  8%|▊         | 2/25 [00:00<00:11,  2.05it/s] 12%|█▏        | 3/25 [00:01<00:10,  2.06it/s] 16%|█▌        | 4/25 [00:01<00:10,  2.06it/s] 20%|██        | 5/25 [00:02<00:09,  2.06it/s] 24%|██▍       | 6/25 [00:02<00:09,  2.07it/s] 28%|██▊       | 7/25 [00:03<00:08,  2.07it/s] 32%|███▏      | 8/25 [00:03<00:08,  2.07it/s] 36%|███▌      | 9/25 [00:04<00:07,  2.07it/s] 40%|████      | 10/25 [00:04<00:07,  2.07it/s] 44%|████▍     | 11/25 [00:05<00:06,  2.07it/s] 48%|████▊     | 12/25 [00:05<00:06,  2.07it/s] 52%|█████▏    | 13/25 [00:06<00:05,  2.07it/s] 56%|█████▌    | 14/25 [00:06<00:05,  2.07it/s] 60%|██████    | 15/25 [00:07<00:04,  2.07it/s] 64%|██████▍   | 16/25 [00:07<00:04,  2.07it/s] 68%|██████▊   | 17/25 [00:08<00:03,  2.07it/s] 72%|███████▏  | 18/25 [00:08<00:03,  2.07it/s] 76%|███████▌  | 19/25 [00:09<00:02,  2.07it/s] 80%|████████  | 20/25 [00:09<00:02,  2.07it/s] 84%|████████▍ | 21/25 [00:10<00:01,  2.07it/s] 88%|████████▊ | 22/25 [00:10<00:01,  2.07it/s] 92%|█████████▏| 23/25 [00:11<00:00,  2.07it/s] 96%|█████████▌| 24/25 [00:11<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]
+Prompt executed in 12.93 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+  0%|          | 0/25 [00:00<?, ?it/s]  4%|▍         | 1/25 [00:00<00:11,  2.00it/s]  8%|▊         | 2/25 [00:00<00:11,  2.04it/s] 12%|█▏        | 3/25 [00:01<00:10,  2.05it/s] 16%|█▌        | 4/25 [00:01<00:10,  2.06it/s] 20%|██        | 5/25 [00:02<00:09,  2.06it/s] 24%|██▍       | 6/25 [00:02<00:09,  2.07it/s] 28%|██▊       | 7/25 [00:03<00:08,  2.07it/s] 32%|███▏      | 8/25 [00:03<00:08,  2.07it/s] 36%|███▌      | 9/25 [00:04<00:07,  2.07it/s] 40%|████      | 10/25 [00:04<00:07,  2.07it/s] 44%|████▍     | 11/25 [00:05<00:06,  2.07it/s] 48%|████▊     | 12/25 [00:05<00:06,  2.07it/s] 52%|█████▏    | 13/25 [00:06<00:05,  2.07it/s] 56%|█████▌    | 14/25 [00:06<00:05,  2.07it/s] 60%|██████    | 15/25 [00:07<00:04,  2.07it/s] 64%|██████▍   | 16/25 [00:07<00:04,  2.07it/s] 68%|██████▊   | 17/25 [00:08<00:03,  2.07it/s] 72%|███████▏  | 18/25 [00:08<00:03,  2.07it/s] 76%|███████▌  | 19/25 [00:09<00:02,  2.07it/s] 80%|████████  | 20/25 [00:09<00:02,  2.07it/s] 84%|████████▍ | 21/25 [00:10<00:01,  2.07it/s] 88%|████████▊ | 22/25 [00:10<00:01,  2.07it/s] 92%|█████████▏| 23/25 [00:11<00:00,  2.07it/s] 96%|█████████▌| 24/25 [00:11<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]
+Prompt executed in 12.95 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+  0%|          | 0/25 [00:00<?, ?it/s]  4%|▍         | 1/25 [00:00<00:12,  1.97it/s]  8%|▊         | 2/25 [00:00<00:11,  2.03it/s] 12%|█▏        | 3/25 [00:01<00:10,  2.05it/s] 16%|█▌        | 4/25 [00:01<00:10,  2.06it/s] 20%|██        | 5/25 [00:02<00:09,  2.06it/s] 24%|██▍       | 6/25 [00:02<00:09,  2.07it/s] 28%|██▊       | 7/25 [00:03<00:08,  2.07it/s] 32%|███▏      | 8/25 [00:03<00:08,  2.07it/s] 36%|███▌      | 9/25 [00:04<00:07,  2.07it/s] 40%|████      | 10/25 [00:04<00:07,  2.07it/s] 44%|████▍     | 11/25 [00:05<00:06,  2.07it/s] 48%|████▊     | 12/25 [00:05<00:06,  2.07it/s] 52%|█████▏    | 13/25 [00:06<00:05,  2.07it/s] 56%|█████▌    | 14/25 [00:06<00:05,  2.07it/s] 60%|██████    | 15/25 [00:07<00:04,  2.07it/s] 64%|██████▍   | 16/25 [00:07<00:04,  2.07it/s] 68%|██████▊   | 17/25 [00:08<00:03,  2.07it/s] 72%|███████▏  | 18/25 [00:08<00:03,  2.07it/s] 76%|███████▌  | 19/25 [00:09<00:02,  2.07it/s] 80%|████████  | 20/25 [00:09<00:02,  2.07it/s] 84%|████████▍ | 21/25 [00:10<00:01,  2.07it/s] 88%|████████▊ | 22/25 [00:10<00:01,  2.07it/s] 92%|█████████▏| 23/25 [00:11<00:00,  2.07it/s] 96%|█████████▌| 24/25 [00:11<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]
+Prompt executed in 12.96 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+  0%|          | 0/25 [00:00<?, ?it/s]  4%|▍         | 1/25 [00:00<00:12,  1.97it/s]  8%|▊         | 2/25 [00:00<00:11,  2.03it/s] 12%|█▏        | 3/25 [00:01<00:10,  2.05it/s] 16%|█▌        | 4/25 [00:01<00:10,  2.06it/s] 20%|██        | 5/25 [00:02<00:09,  2.06it/s] 24%|██▍       | 6/25 [00:02<00:09,  2.07it/s] 28%|██▊       | 7/25 [00:03<00:08,  2.07it/s] 32%|███▏      | 8/25 [00:03<00:08,  2.07it/s] 36%|███▌      | 9/25 [00:04<00:07,  2.07it/s] 40%|████      | 10/25 [00:04<00:07,  2.07it/s] 44%|████▍     | 11/25 [00:05<00:06,  2.07it/s] 48%|████▊     | 12/25 [00:05<00:06,  2.07it/s] 52%|█████▏    | 13/25 [00:06<00:05,  2.07it/s] 56%|█████▌    | 14/25 [00:06<00:05,  2.07it/s] 60%|██████    | 15/25 [00:07<00:04,  2.07it/s] 64%|██████▍   | 16/25 [00:07<00:04,  2.07it/s] 68%|██████▊   | 17/25 [00:08<00:03,  2.07it/s] 72%|███████▏  | 18/25 [00:08<00:03,  2.07it/s] 76%|███████▌  | 19/25 [00:09<00:02,  2.07it/s] 80%|████████  | 20/25 [00:09<00:02,  2.07it/s] 84%|████████▍ | 21/25 [00:10<00:01,  2.07it/s] 88%|████████▊ | 22/25 [00:10<00:01,  2.07it/s] 92%|█████████▏| 23/25 [00:11<00:00,  2.07it/s] 96%|█████████▌| 24/25 [00:11<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.06it/s]
+  0%|          | 0/22 [00:00<?, ?it/s]  5%|▍         | 1/22 [00:02<00:50,  2.42s/it]  9%|▉         | 2/22 [00:04<00:48,  2.42s/it] 14%|█▎        | 3/22 [00:07<00:45,  2.41s/it] 18%|█▊        | 4/22 [00:09<00:43,  2.41s/it] 23%|██▎       | 5/22 [00:12<00:41,  2.41s/it] 27%|██▋       | 6/22 [00:14<00:38,  2.41s/it] 32%|███▏      | 7/22 [00:16<00:36,  2.41s/it] 36%|███▋      | 8/22 [00:19<00:33,  2.41s/it] 41%|████      | 9/22 [00:21<00:31,  2.41s/it] 45%|████▌     | 10/22 [00:24<00:28,  2.41s/it] 50%|█████     | 11/22 [00:26<00:26,  2.41s/it] 55%|█████▍    | 12/22 [00:28<00:24,  2.41s/it] 59%|█████▉    | 13/22 [00:31<00:21,  2.41s/it] 64%|██████▎   | 14/22 [00:33<00:19,  2.41s/it] 68%|██████▊   | 15/22 [00:36<00:16,  2.41s/it] 73%|███████▎  | 16/22 [00:38<00:14,  2.41s/it] 77%|███████▋  | 17/22 [00:41<00:12,  2.41s/it] 82%|████████▏ | 18/22 [00:43<00:09,  2.41s/it] 86%|████████▋ | 19/22 [00:45<00:07,  2.41s/it] 91%|█████████ | 20/22 [00:48<00:04,  2.41s/it] 95%|█████████▌| 21/22 [00:50<00:02,  2.41s/it]100%|██████████| 22/22 [00:53<00:00,  2.41s/it]100%|██████████| 22/22 [00:53<00:00,  2.41s/it]
+Requested to load AutoencoderKL
+Loading 1 new model
+Prompt executed in 69.55 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+  0%|          | 0/25 [00:00<?, ?it/s]  4%|▍         | 1/25 [00:00<00:11,  2.01it/s]  8%|▊         | 2/25 [00:00<00:11,  2.05it/s] 12%|█▏        | 3/25 [00:01<00:10,  2.06it/s] 16%|█▌        | 4/25 [00:01<00:10,  2.06it/s] 20%|██        | 5/25 [00:02<00:09,  2.06it/s] 24%|██▍       | 6/25 [00:02<00:09,  2.07it/s] 28%|██▊       | 7/25 [00:03<00:08,  2.07it/s] 32%|███▏      | 8/25 [00:03<00:08,  2.07it/s] 36%|███▌      | 9/25 [00:04<00:07,  2.07it/s] 40%|████      | 10/25 [00:04<00:07,  2.07it/s] 44%|████▍     | 11/25 [00:05<00:06,  2.07it/s] 48%|████▊     | 12/25 [00:05<00:06,  2.07it/s] 52%|█████▏    | 13/25 [00:06<00:05,  2.07it/s] 56%|█████▌    | 14/25 [00:06<00:05,  2.07it/s] 60%|██████    | 15/25 [00:07<00:04,  2.07it/s] 64%|██████▍   | 16/25 [00:07<00:04,  2.07it/s] 68%|██████▊   | 17/25 [00:08<00:03,  2.07it/s] 72%|███████▏  | 18/25 [00:08<00:03,  2.07it/s] 76%|███████▌  | 19/25 [00:09<00:02,  2.07it/s] 80%|████████  | 20/25 [00:09<00:02,  2.07it/s] 84%|████████▍ | 21/25 [00:10<00:01,  2.07it/s] 88%|████████▊ | 22/25 [00:10<00:01,  2.07it/s] 92%|█████████▏| 23/25 [00:11<00:00,  2.07it/s] 96%|█████████▌| 24/25 [00:11<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]100%|██████████| 25/25 [00:12<00:00,  2.07it/s]
+Prompt executed in 12.90 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+  0%|          | 0/25 [00:00<?, ?it/s]  4%|▍         | 1/25 [00:00<00:04,  5.39it/s]  8%|▊         | 2/25 [00:00<00:04,  5.56it/s] 12%|█▏        | 3/25 [00:00<00:03,  5.83it/s] 16%|█▌        | 4/25 [00:00<00:03,  5.96it/s] 20%|██        | 5/25 [00:00<00:03,  6.04it/s] 24%|██▍       | 6/25 [00:01<00:03,  6.08it/s] 28%|██▊       | 7/25 [00:01<00:02,  6.11it/s] 32%|███▏      | 8/25 [00:01<00:02,  6.13it/s] 36%|███▌      | 9/25 [00:01<00:02,  6.14it/s] 40%|████      | 10/25 [00:01<00:02,  6.15it/s] 44%|████▍     | 11/25 [00:01<00:02,  6.16it/s] 48%|████▊     | 12/25 [00:01<00:02,  6.16it/s] 52%|█████▏    | 13/25 [00:02<00:01,  6.16it/s] 56%|█████▌    | 14/25 [00:02<00:01,  6.16it/s] 60%|██████    | 15/25 [00:02<00:01,  6.17it/s] 64%|██████▍   | 16/25 [00:02<00:01,  6.17it/s] 68%|██████▊   | 17/25 [00:02<00:01,  6.16it/s] 72%|███████▏  | 18/25 [00:02<00:01,  6.17it/s] 76%|███████▌  | 19/25 [00:03<00:00,  6.17it/s] 80%|████████  | 20/25 [00:03<00:00,  6.17it/s] 84%|████████▍ | 21/25 [00:03<00:00,  6.17it/s] 88%|████████▊ | 22/25 [00:03<00:00,  6.17it/s] 92%|█████████▏| 23/25 [00:03<00:00,  6.18it/s] 96%|█████████▌| 24/25 [00:03<00:00,  6.18it/s]100%|██████████| 25/25 [00:04<00:00,  6.18it/s]100%|██████████| 25/25 [00:04<00:00,  6.11it/s]
+Prompt executed in 4.37 seconds
+[Impact Pack] Wildcards loading done.
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+Prompt executed in 0.25 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+Prompt executed in 0.00 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+Prompt executed in 0.00 seconds
+Update ComfyUI
+[ComfyUI-Manager] Try fixing 'dubious repository' error on 'ComfyUI' repository
+path=/stable-diffusion-comfyui / repo.is_dirty: True
+ComfyUI update fail: Cmd('git') failed due to: exit code(1)
+  cmdline: git pull -v -- origin
+  stderr: 'error: Your local changes to the following files would be overwritten by merge:
+error: The following untracked working tree files would be overwritten by merge:'
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+Prompt executed in 0.00 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+Prompt executed in 0.00 seconds
+got prompt
+Failed to validate prompt for output 341:
+* (prompt):
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+* Image Save 341:
+  - Failed to convert an input value to a INT value: quality, false, invalid literal for int() with base 10: 'false'
+Output will be ignored
+Failed to validate prompt for output 567:
+* (prompt):
+  - Required input is missing: signal
+* ImpactNodeSetMuteState 567:
+  - Required input is missing: signal
+Output will be ignored
+[32m[rgthree] Using rgthree's optimized recursive execution.[0m
+Prompt executed in 0.00 seconds
