@@ -95,7 +95,6 @@ spec:
         # - "--no-half"
         # - "--skip-torch-cuda-test"
         # - "--skip-install"
-
         ports:
         - containerPort: 7860
         volumeMounts:
@@ -103,6 +102,8 @@ spec:
           mountPath: /stable-diffusion-webui
         - name: sd-model-lora
           mountPath: /stable-diffusion-webui/models/Lora
+        - name: sd-model-checkpoints
+          mountPath: /stable-diffusion-webui/models/Stable-diffusion
       volumes:
       - name: sd-comfy-backup
         hostPath:
