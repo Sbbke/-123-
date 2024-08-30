@@ -21,7 +21,6 @@ RUN pip3 install open_clip_torch
 # RUN aria2c -d /stable-diffusion-webui/models/Stable-diffusion/ -o ChilloutMix-FP32-Fix.safetensors "https://civitai-delivery-worker-prod-2023-11-01.5ac0637cfd0766c97916cefa3764fbdf.r2.cloudflarestorage.com/76164/model/chilloutmixNiPruned.Tw1O.safetensors?X-Amz-Expires=86400&response-content-disposition=attachment%3B%20filename%3D%22chilloutmix_NiPrunedFp32Fix.safetensors%22&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=e01358d793ad6966166af8b3064953ad/20231111/us-east-1/s3/aws4_request&X-Amz-Date=20231111T121656Z&X-Amz-SignedHeaders=host&X-Amz-Signature=2158177dc5bb1fd08124ae52cea673ddefda1dc4a4e9422ea0aa068dfdef9648"
 # RUN aria2c -d /stable-diffusion-webui/models/Stable-diffusion/ -o ChilloutMix-FP32-Fix.preview.jpeg "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/20fcc1d7-29ce-42d8-1502-02c4e50e9100/width=450/174703.jpeg"
 
-
 RUN git clone https://github.com/comfyanonymous/ComfyUI.git /stable-diffusion-comfyui
 WORKDIR /stable-diffusion-comfyui
 RUN pip3 install -r /stable-diffusion-comfyui/requirements.txt
@@ -39,7 +38,13 @@ RUN pip3 install piexif openmim segment-anything ultralytics scikit-image
 RUN git clone https://github.com/WASasquatch/was-node-suite-comfyui.git /stable-diffusion-comfyui/custom_nodes/was-node-suite-comfyui
 RUN pip3 install -r /stable-diffusion-comfyui/custom_nodes/was-node-suite-comfyui/requirements.txt
 
+WORKDIR /stable-diffusion-comfyui/custom_nodes
+RUN git clone https://github.com/ltdrdata/ComfyUI-Manager.git
+RUN pip3 install -r ComfyUI-Manager/requirements.txt
+RUN git clone https://github.com/kijai/ComfyUI-ADMotionDirector.git 
+RUN pip3 install -r ComfyUI-ADMotionDirector/requirements.txt
+RUN git clone https://github.com/crystian/ComfyUI-Crystools.git
+RUN pip3 install -r ComfyUI-Crystools/requirements.txt
 # RUN python3 /stable-diffusion-webui/launch.py --no-download-sd-model --skip-torch-cuda-test --exit
 
 # CMD python3 /stable-diffusion-webui/webui.py --listen --xformers --no-download-sd-model --enable-insecure-extension-access --api
-
