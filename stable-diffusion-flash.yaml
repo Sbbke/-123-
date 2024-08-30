@@ -44,6 +44,7 @@ spec:
         #------------for comfyui----------------
         - "--listen"
         - "--disable-auto-launch"
+        - "--normalvram"
 
         #------------for sd.ui----------------
         # - "--listen"
@@ -82,6 +83,10 @@ spec:
           mountPath: /stable-diffusion-comfyui/models/vae
         - name: sd-animatediff-model
           mountPath: /stable-diffusion-comfyui/custom_nodes/ComfyUI-AnimateDiff-Evolved/models
+        - name: sd-output
+          mountPath: /stable-diffusion-comfyui/output          
+        - name: sd-animatediff-lora
+          mountPath: /stable-diffusion-comfyui/custom_nodes/ComfyUI-AnimateDiff-Evolved/motion_lora
 
       - name: stable-diffustion-ux
         image: library/sdwebui-ux:latest
@@ -105,6 +110,9 @@ spec:
         - name: sd-model-checkpoints
           mountPath: /stable-diffusion-webui/models/Stable-diffusion
       volumes:
+      - name: sd-output
+        hostPath:
+          path: /media/selab/Transcend/StableDiffusion/output      
       - name: sd-comfy-backup
         hostPath:
           path: /media/selab/Transcend/StableDiffusion/sd-comfy
@@ -128,7 +136,7 @@ spec:
           path: /media/selab/Transcend/StableDiffusion/models/ESRGAN             
       - name: sd-controlnet
         hostPath:
-          path: /home/selab/ControlNet-v1-1/
+          path: /media/selab/Transcend/StableDiffusion/models/ControlNet
       - name: sd-embeddings
         hostPath:
           path: /media/selab/Transcend/StableDiffusion/models/embeddings
@@ -138,6 +146,9 @@ spec:
       - name: sd-animatediff-model
         hostPath: 
           path: /media/selab/Transcend/StableDiffusion/extensions/sd-webui-animatediff/model
+      - name: sd-animatediff-lora
+        hostPath: 
+          path: /media/selab/Transcend/StableDiffusion/extensions/sd-webui-animatediff/motion_lora
 
 ---
 apiVersion: v1
