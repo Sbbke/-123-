@@ -17,15 +17,24 @@ spec:
       nodeName: selab-t27
       restartPolicy: Always
       initContainers:
-      - name: stable-diffusion-initial
+      - name: stable-diffusion-comfy-initial
         image: library/sd-comfy:latest
         imagePullPolicy: Never
         command: ["/bin/sh", "-c"]
         args:
-        - "cp -r /stable-diffusion-comfyui /stable-diffusion-comfyui-data"
+        - "cp -r /stable-diffusion-comfyui/* /sd-comfy"
         volumeMounts:
-        - name: sd-backup
-          mountPath: /stable-diffusion-comfyui-data
+        - name: sd-comfy-backup
+          mountPath: /sd-comfy
+      - name: stable-diffusion-uiux-initial
+        image: library/sdwebui-ux:latest
+        imagePullPolicy: Never
+        command: ["/bin/sh", "-c"]
+        args:
+        - "cp -r /stable-diffusion-webui/* /sd-webui"
+        volumeMounts:
+        - name: sd-webui-backup
+          mountPath: /sd-webui
       containers:
       - name: stable-diffusion-comfyui
         image: library/sd-comfy:latest
@@ -35,6 +44,7 @@ spec:
         #------------for comfyui----------------
         - "--listen"
         - "--disable-auto-launch"
+        - "--normalvram"
 
         #------------for sd.ui----------------
         # - "--listen"
@@ -73,53 +83,72 @@ spec:
           mountPath: /stable-diffusion-comfyui/models/vae
         - name: sd-animatediff-model
           mountPath: /stable-diffusion-comfyui/custom_nodes/ComfyUI-AnimateDiff-Evolved/models
+        - name: sd-output
+          mountPath: /stable-diffusion-comfyui/output          
+        - name: sd-animatediff-lora
+          mountPath: /stable-diffusion-comfyui/custom_nodes/ComfyUI-AnimateDiff-Evolved/motion_lora
+
       - name: stable-diffustion-ux
         image: library/sdwebui-ux:latest
         imagePullPolicy: Never
-        command: ["python3", "/stable-diffusion-webui/launch.py"]
-        args:
-                #------------for sd.ui----------------
-        - "--listen"
-        - "--no-download-sd-model"
-        - "--enable-insecure-extension-access"
-        - "--no-half"
-        - "--skip-torch-cuda-test"
+        # command: ["python3", "/stable-diffusion-webui/webui.py", "--use-cpu", "all"]
+        # args:
+        #         #------------for sd.ui----------------
+        # - "--listen"
+        # - "--no-download-sd-model"
+        # - "--enable-insecure-extension-access"
+        # - "--no-half"
+        # - "--skip-torch-cuda-test"
+        # - "--skip-install"
         ports:
         - containerPort: 7860
         volumeMounts:
         - name: sd-ux-data
           mountPath: /stable-diffusion-webui
+        - name: sd-model-lora
+          mountPath: /stable-diffusion-webui/models/Lora
+        - name: sd-model-checkpoints
+          mountPath: /stable-diffusion-webui/models/Stable-diffusion
       volumes:
-      - name: sd-backup
+      - name: sd-output
         hostPath:
-          path: /home/selab
+          path: /home/selab/StableDiffusion/output      
+      - name: sd-comfy-backup
+        hostPath:
+          path: /home/selab/StableDiffusion/sd-comfy
+      - name: sd-webui-backup
+        hostPath:
+          path: /home/selab/StableDiffusion/sd-webui
       - name: sd-data
         hostPath:
-          path: /home/selab/stable-diffusion-comfyui
+          path: /home/selab/StableDiffusion/sd-comfy
       - name: sd-ux-data
         hostPath:
-          path: /home/selab/stable-diffusion-webui
+          path: /home/selab/StableDiffusion/sd-webui
       - name: sd-model-checkpoints
         hostPath:
-          path: /home/selab/stable-diffusion-webui/models/Stable-diffusion
+          path: /home/selab/StableDiffusion/models/Stable-diffusion
       - name: sd-model-lora
         hostPath:
-          path: /home/selab/stable-diffusion-webui/models/Lora   
+          path: /home/selab/StableDiffusion/models/Lora   
       - name: sd-model-upscale
         hostPath:
-          path: /home/selab/stable-diffusion-webui/models/ESRGAN             
+          path: /home/selab/StableDiffusion/models/ESRGAN             
       - name: sd-controlnet
         hostPath:
-          path: /home/selab/ControlNet-v1-1/
+          path: /home/selab/StableDiffusion/models/ControlNet
       - name: sd-embeddings
         hostPath:
-          path: /home/selab/stable-diffusion-webui/models/embeddings
+          path: /home/selab/StableDiffusion/models/embeddings
       - name: sd-vae
         hostPath:
-          path: /home/selab/stable-diffusion-webui/models/VAE
+          path: /home/selab/StableDiffusion/models/VAE
       - name: sd-animatediff-model
         hostPath: 
-          path: /home/selab/stable-diffusion-webui/extensions/sd-webui-animatediff/model
+          path: /home/selab/StableDiffusion/extensions/sd-webui-animatediff/model
+      - name: sd-animatediff-lora
+        hostPath: 
+          path: /home/selab/StableDiffusion/extensions/sd-webui-animatediff/motion_lora
 
 ---
 apiVersion: v1
